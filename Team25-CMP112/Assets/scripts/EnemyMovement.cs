@@ -1,17 +1,20 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float MovementSpeed = 1f;
+    public float MovementSpeed = 1f; //Enemy movement speed
     private Vector2 startPos; //Gets enemy starting position on 2D axis
 
     private int facing = 1;
-
+    
     private bool isFlipping;
     private bool isMoving = true;
-    public float wait;
+
+    private float randomTime, timer;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,15 +22,22 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); //Gets rigidbody of the enemy character
         startPos = this.transform.position; //Gets the starting position of enemy
+
+        randomTime = Random.Range(1, 3); //Generates a random number between 1 and 3
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isFlipping && (transform.position.x > startPos.x + 0.5 || transform.position.x < startPos.x - 0.5))
-        {
-            isMoving = false;
+        timer += Time.deltaTime;
 
+        if (timer >= randomTime)
+        {
+            change();
+        }
+
+        if (!isFlipping && (transform.position.x > startPos.x + 1.5 || transform.position.x < startPos.x - 1.5))
+        {
             StartCoroutine(flip());
         }
 
@@ -37,26 +47,19 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    IEnumerator flip() //Flips the way the player is facing
+    IEnumerator flip() //Flips the way the enemy is facing
     {
-        wait += Time.deltaTime;
-
-        isFlipping = true; //Character is flipping
-
-        if (wait > 4)
-        {
-            Debug.Log("waited 4 seconds");
-            transform.Rotate(0, 180, 0); //Flips character on y axis
-            facing *= -1;
-            yield return new WaitForSeconds(0.5f);
-            isFlipping = false;
-            stopped();
-        }
+        isFlipping = true; //Enemy is flipping
+        transform.Rotate(0, 180, 0); //Flips character on y axis
+        facing *= -1;
+        yield return new WaitForSeconds(0.5f);
+        isFlipping = false; //Enemy is no longer flipping
     }
 
-    void stopped()
+    void change()
     {
-        isMoving = true;
-        wait = 0;
+        isMoving = !isMoving;
+        randomTime = isMoving ? Random.Range(1, 3) : Random.Range(1, 3); //If isWalking = true move for randomTime 1 to 3 or if isWalking = false stop for randomTime 1 to 3
+        timer = 0; //Reset timer to 0
     }
 }
