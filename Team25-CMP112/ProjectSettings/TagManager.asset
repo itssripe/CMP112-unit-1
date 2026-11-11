@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - BG
-  - 
+  - Player
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 2707192871
+    locked: 0
+  - name: player
+    uniqueID: 579733983
     locked: 0
   m_RenderingLayers:
   - Default
