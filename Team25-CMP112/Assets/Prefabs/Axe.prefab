@@ -110,7 +110,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2016917fd0223b4daa5fe3a8848c9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  projectileRb: {fileID: 0}
-  speed: 2
-  projectileLife: 3
+  projectileRb: {fileID: 7416247563049908254}
+  speed: 1.5
+  projectileLife: 2
   projectileCount: 0

@@ -3,9 +3,11 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     public Rigidbody2D projectileRb;
-    public float speed = 2f;
+    public float speed = 2f; //Speed of projectile
 
-    public float projectileLife = 3;
+    GameObject playerPos;
+
+    public float projectileLife = 3f; //How long the projectile will exist for after being thrown/Created
     public float projectileCount;
 
 
@@ -14,28 +16,33 @@ public class PlayerProjectile : MonoBehaviour
     {
         projectileRb = GetComponent<Rigidbody2D>();
         projectileCount = projectileLife;
+
+        playerPos = GameObject.FindGameObjectWithTag("Player");
+        Vector2 moveProjectile = (playerPos.transform.position - transform.position) * speed;
+        projectileRb.linearVelocity = new Vector2(moveProjectile.x, (moveProjectile.y * 0)); //Shoots projectile straight forward
     }
 
     // Update is called once per frame
     void Update()
     {
-        projectileCount -= Time.deltaTime;
-        if(projectileCount <= 0)
+        if(projectileCount <= 0) //Destroys thrown projectile when three seconds have passed
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+            projectileCount = projectileLife;
         }
+        projectileCount -= Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
-        projectileRb.linearVelocity = new Vector2(speed, projectileRb.linearVelocity.y);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //Destroys player object when hit by projectile
         }
     }
 }

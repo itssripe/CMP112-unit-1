@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+
     public float MovementSpeed = 1f; //Enemy movement speed
     private Vector2 startPos; //Gets enemy starting position on 2D axis
+    private Transform playerPos;
 
     private int facing = 1;
     
@@ -22,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); //Gets rigidbody of the enemy character
         startPos = this.transform.position; //Gets the starting position of enemy
+
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
 
         randomTime = Random.Range(1, 3); //Generates a random number between 1 and 3
     }
