@@ -346,7 +346,7 @@ Transform:
   m_GameObject: {fileID: 935375232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.117, y: 0.221, z: 0}
+  m_LocalPosition: {x: 0.444, y: 0.221, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -451,11 +451,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b6ea5c74c28914082d7614a4a67748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  detectorOrigin: {fileID: 935375234}
+  detectorSize: {x: 0.5, y: 0.25}
+  detectorOffset: {x: 0.26, y: 0.004}
   projectilePrefab: {fileID: 2660580263585790877, guid: 7eab120addba332438087eda44b57e34, type: 3}
   throwPoint: {fileID: 1779743326}
   throwTime: 3
   throwCounter: 0
-  lineOfSight: 1
 --- !u!1 &1068533157
 GameObject:
   m_ObjectHideFlags: 0
