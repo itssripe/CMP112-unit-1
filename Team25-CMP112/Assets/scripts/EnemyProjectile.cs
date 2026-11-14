@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     public Rigidbody2D projectileRb;
-    public float speed = 2f; //Speed of projectile
+    public float speed = 1f; //Speed of projectile
 
     GameObject playerPos;
 
@@ -31,11 +31,6 @@ public class PlayerProjectile : MonoBehaviour
             projectileCount = projectileLife;
         }
         projectileCount -= Time.deltaTime;
-    }
-
-    private void FixedUpdate()
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

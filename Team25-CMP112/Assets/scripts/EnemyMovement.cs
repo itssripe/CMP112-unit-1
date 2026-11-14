@@ -5,10 +5,19 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Rigidbody2D Rb {
+        get { return rb; }
+        set { rb = value; }
+    }
 
     public float MovementSpeed = 1f; //Enemy movement speed
     private Vector2 startPos; //Gets enemy starting position on 2D axis
     private Transform playerPos;
+    public Transform PlayerPos
+    {
+        get { return playerPos; }
+        set {  playerPos = value; }
+    }
 
     private int facing = 1;
     

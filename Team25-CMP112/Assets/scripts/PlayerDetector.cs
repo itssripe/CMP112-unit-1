@@ -1,8 +1,19 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(EnemyMovement))]
 public class PlayerDetector : MonoBehaviour
 {
+
+    [Header("Detection Area")]
+    [SerializeField]
+    private Transform detectorOrigin;
+    public Vector2 detectorSize = Vector2.one;
+    public Vector2 detectorOffset = Vector2.one;
+
+    private Rigidbody2D rb;
+    //private Transform playerPos;
+
     public GameObject projectilePrefab; //Allows input for what projectile will be thrown
     public Transform throwPoint;
 
@@ -10,21 +21,22 @@ public class PlayerDetector : MonoBehaviour
     public float throwCounter;
 
 
-    public float lineOfSight; //Allows the distance of line of sight to be changed
     private Transform player;
 
 
     void Start()
     {
+        rb= GetComponent<EnemyMovement>().Rb;
         throwCounter = throwTime;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distanceFromPlayer = Vector2.Distance(player.position,transform.position);
-        if (distanceFromPlayer < lineOfSight)
+        Collider2D detector = Physics2D.OverlapBox((Vector2)detectorOrigin.position + detectorOffset, detectorSize, 0);
+        Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().Collider;
+        bool isPlayer = Physics2D.IsTouching(detector, playerCol);
+        if (isPlayer)
         {
             if (throwCounter < 0)
             {
@@ -35,9 +47,9 @@ public class PlayerDetector : MonoBehaviour
         throwCounter -= Time.deltaTime;
     }
 
-    public void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, lineOfSight);
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube((Vector2)detectorOrigin.position + detectorOffset, detectorSize);
     }
 }
