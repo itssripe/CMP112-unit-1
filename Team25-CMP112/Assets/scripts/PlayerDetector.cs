@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class PlayerDetector : MonoBehaviour
 {
 
-    [Header("Detection Area")]
+    [Header("Detection Area")] //Appears in the inspector on Enemy, allows for editing of values++++++
     [SerializeField]
     private Transform detectorOrigin;
     public Vector2 detectorSize = Vector2.one;
