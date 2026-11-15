@@ -35,7 +35,7 @@ public class PlayerDetector : MonoBehaviour
     {
         Collider2D detector = Physics2D.OverlapBox((Vector2)detectorOrigin.position + detectorOffset, detectorSize, 0);
         Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().Collider;
-        bool isPlayer = Physics2D.IsTouching(detector, playerCol);
+        bool isPlayer = Physics2D.IsTouching(playerCol, detector);
         if (isPlayer)
         {
             if (throwCounter < 0)
@@ -51,5 +51,6 @@ public class PlayerDetector : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawCube((Vector2)detectorOrigin.position + detectorOffset, detectorSize);
+
     }
 }
