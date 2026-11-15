@@ -18,8 +18,7 @@ public class PlayerMovement : MonoBehaviour
         get { return collider; }
         set { collider = value; }
     }
-    Vector2 movementVector;
-    public float MovementSpeed = 1f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
