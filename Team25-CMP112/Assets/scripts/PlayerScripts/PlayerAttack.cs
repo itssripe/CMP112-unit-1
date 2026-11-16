@@ -45,9 +45,13 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             animator.Play("Attack_bow");
-            Instantiate(Arrow_Projectile, transform.position, transform.rotation);
         }
 
+    }
+
+    public void ShootArrow()
+    { 
+        Instantiate(Arrow_Projectile, transform.position, transform.rotation); 
     }
 
 
@@ -65,11 +69,11 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            if (IsAttacking && CanHitAgain)
+            if (IsAttacking)
             {
                 Destroy(collision.gameObject);
             }

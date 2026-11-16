@@ -24,7 +24,7 @@ public class PlayerDetector : MonoBehaviour
     void Update()
     {
         Collider2D detector = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<DetectionBox>().Detector; //Gets transforms of detector from Detection Box script
-        Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().Collider;
+        Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
         bool isPlayer = Physics2D.IsTouching(playerCol, detector); //Checks if player's collider is touching the PlayerDectorBox collider
         if (isPlayer)
         {
