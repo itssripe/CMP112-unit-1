@@ -4,22 +4,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //declaration of variables
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator animator;
     private Vector2 movementVector;
     private Vector2 jumpVector;
+    private PlayerAttack PlayerAttack;
     private bool jumped;
     private bool onGround;
     public float MovementSpeed;
     public float jumpForce = 5f;
+    public bool isRunning;
+    public bool IsLookingRight;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Start()//gets various components
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        PlayerAttack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -27,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
     }
-    void FixedUpdate()
+    void FixedUpdate()//movement of the player 
     {
         Vector2 movement = new Vector2(movementVector.x, movementVector.y);
         rb.AddForce(movement * MovementSpeed);
@@ -47,28 +53,37 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue Value)
     {
         movementVector = Value.Get<Vector2>();
-        
-        if (movementVector.x < 0)
+
+        if (movementVector.x < 0)//flip sprite
         {
             sr.flipX = true;
+            IsLookingRight = false;
         }
-        if (movementVector.x > 0)
+        if (movementVector.x > 0)//flip sprite
         {
             sr.flipX = false;
+            IsLookingRight = true;
         }
-        if (movementVector.x != 0)
+        if (movementVector.x != 0)//play walk animation
         {
-            animator.Play("Walk");
+            if (!PlayerAttack.IsAttacking)//if player is attacking, don't play walk animation
+            {
+                Debug.Log("Walking");
+                animator.Play("Walk");
+            }
+            
+            isRunning = true;
         }
-        else if (movementVector.x == 0)
+        else if (movementVector.x == 0)//play idle animation
         {
             animator.Play("Idle");
+            isRunning = false;
         }
     }
 
     private void OnJump(InputValue Value)
     {
-        if (onGround)
+        if (onGround)//checks if on ground
         {
             jumped = true;
         }
@@ -81,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground"))//compares player collider with the ground collider if in contact - sets to true
         {
             onGround = true;  
         }
@@ -89,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground"))//compares player collider with the ground collider if not in contact - sets to false
         {
             onGround = false;
         }

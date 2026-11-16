@@ -3,16 +3,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-
+   
     private Animator animator;
     private SpriteRenderer sr;
     private bool CanHitAgain;
+
+
+    public GameObject Arrow_Projectile;
+    public bool IsAttacking;
+    public bool SwordEquipped;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         CanHitAgain = true;
+        
 
     }
 
@@ -31,8 +38,30 @@ public class PlayerAttack : MonoBehaviour
     private void OnAttack(InputValue Value)
     {
 
-        animator.Play("Attack_sword");
+        if (SwordEquipped)
+        {
+            animator.Play("Attack_sword");
+        }
+        else
+        {
+            animator.Play("Attack_bow");
+            Instantiate(Arrow_Projectile, transform.position, transform.rotation);
+        }
 
+    }
+
+
+    private void OnEquip(InputValue Value)//changes between sword and bow
+    {
+        if (SwordEquipped)
+        {
+            SwordEquipped = false;
+
+        }
+        else
+        {
+            SwordEquipped = true;
+        }
     }
 
 
@@ -40,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            CanHitAgain = false;
+            CanHitAgain = false; // probably better on enemy
         }
     }
 
