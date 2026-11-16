@@ -40,5 +40,10 @@ public class Arrow_Behaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

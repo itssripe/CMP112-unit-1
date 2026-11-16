@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public bool isRunning;
     public bool IsLookingRight;
 
+    private Collider2D collider;
+    public Collider2D Collider
+    {
+        get { return collider; }
+        set { collider = value; }
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()//gets various components
@@ -26,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         PlayerAttack = GetComponent<PlayerAttack>();
+        collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame

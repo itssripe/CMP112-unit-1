@@ -69,6 +69,10 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            if (IsAttacking && CanHitAgain)
+            {
+                Destroy(collision.gameObject);
+            }
             CanHitAgain = false; // probably better on enemy
         }
     }
