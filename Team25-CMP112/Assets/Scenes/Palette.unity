@@ -119,6 +119,84 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73504126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73504127}
+  - component: {fileID: 73504128}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73504127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73504126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1188014561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &73504128
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73504126}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.008617431, y: -0.0023502856}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.29962957, y: 0.21188739}
+  m_EdgeRadius: 0
 --- !u!1 &309357200
 GameObject:
   m_ObjectHideFlags: 0
@@ -68708,6 +68786,31 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< Updated upstream
+=======
+--- !u!1 &1188014554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2205854527243427537, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+  m_PrefabInstance: {fileID: 8562936641778277673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1188014561 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4164187674562010917, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+  m_PrefabInstance: {fileID: 8562936641778277673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1188014562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188014554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8ff3b79eb342b4abce067bbcb171fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+>>>>>>> Stashed changes
 --- !u!1 &1860069877
 GameObject:
   m_ObjectHideFlags: 0
@@ -68761,9 +68864,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1811602129930436876, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.094375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811602129930436876, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.006
+      objectReference: {fileID: 0}
     - target: {fileID: 2205854527243427537, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464363335377658673, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464363335377658673, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159745968748430802, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4159745968748430802, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
       propertyPath: m_GravityScale
@@ -68825,14 +68948,32 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7500873698937967015, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500873698937967015, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4099682557227360808, guid: 57b6f8314a99dc9408580b824a2e5b33, type: 3}
     - target: {fileID: 7817776513342686148, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
       propertyPath: jumpForce
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7817776513342686148, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      propertyPath: MovementSpeed
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4164187674562010917, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 73504127}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2205854527243427537, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1188014562}
   m_SourcePrefab: {fileID: 100100000, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
