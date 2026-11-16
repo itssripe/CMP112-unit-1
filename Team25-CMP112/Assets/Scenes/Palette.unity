@@ -68786,8 +68786,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1188014554 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2205854527243427537, guid: 28e15f5b3a565664d802c7bad90d97c0, type: 3}
@@ -68810,7 +68808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8ff3b79eb342b4abce067bbcb171fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
->>>>>>> Stashed changes
 --- !u!1 &1860069877
 GameObject:
   m_ObjectHideFlags: 0
