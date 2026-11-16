@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 4540435394738292695}
   - component: {fileID: 690943360586755244}
   - component: {fileID: 8535569312549608502}
+  - component: {fileID: 7820818741004040758}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,9 +31,9 @@ Transform:
   m_GameObject: {fileID: 4477175665417375087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.117, y: 0.221, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 2.1027336, y: 0.6487456, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5263757287408362854}
   m_Father: {fileID: 0}
@@ -82,8 +83,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1587774425
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3799508404887519019, guid: 3f5462b807c231b4fac9b8b8bb105145, type: 3}
@@ -195,13 +196,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b6ea5c74c28914082d7614a4a67748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  detectorOrigin: {fileID: 8789719538643950576}
-  detectorSize: {x: 0.5, y: 0.15}
-  detectorOffset: {x: 0.26, y: 0.004}
   projectilePrefab: {fileID: 2660580263585790877, guid: 7eab120addba332438087eda44b57e34, type: 3}
   throwPoint: {fileID: 5263757287408362854}
   throwTime: 3
   throwCounter: 0
+--- !u!114 &7820818741004040758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477175665417375087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfec24431c75114b82bf03762f69cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectionBox
 --- !u!1 &4818568492558413624
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!PlayerAttack.IsAttacking)//if player is attacking, don't play walk animation
             {
-                Debug.Log("Walking");
                 animator.Play("Walk");
             }
             
@@ -84,7 +83,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (movementVector.x == 0)//play idle animation
         {
-            animator.Play("Idle");
+            if (!PlayerAttack.IsAttacking)
+            {
+                animator.Play("Idle");
+            }
             isRunning = false;
         }
     }
