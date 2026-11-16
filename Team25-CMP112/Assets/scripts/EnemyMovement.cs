@@ -46,12 +46,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (timer >= randomTime)
         {
-            change();
+            Change();
         }
 
         if (!isFlipping && (transform.position.x > startPos.x + 1.5 || transform.position.x < startPos.x - 1.5))
         {
-            StartCoroutine(flip());
+            StartCoroutine(Flip());
         }
 
         if (isMoving)
@@ -60,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    IEnumerator flip() //Flips the way the enemy is facing
+    IEnumerator Flip() //Flips the way the enemy is facing
     {
         isFlipping = true; //Enemy is flipping
         transform.Rotate(0, 180, 0); //Flips character on y axis
@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
         isFlipping = false; //Enemy is no longer flipping
     }
 
-    void change()
+    void Change()
     {
         isMoving = !isMoving;
         randomTime = isMoving ? Random.Range(1, 3) : Random.Range(1, 3); //If isWalking = true move for randomTime 1 to 3 or if isWalking = false stop for randomTime 1 to 3

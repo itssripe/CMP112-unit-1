@@ -5,23 +5,13 @@ using UnityEngine.Events;
 public class PlayerDetector : MonoBehaviour
 {
 
-    [Header("Detection Area")]
-    [SerializeField]
-    private Transform detectorOrigin;
-    public Vector2 detectorSize = Vector2.one;
-    public Vector2 detectorOffset = Vector2.one;
-
     private Rigidbody2D rb;
-    //private Transform playerPos;
 
     public GameObject projectilePrefab; //Allows input for what projectile will be thrown
     public Transform throwPoint;
 
     public float throwTime;
     public float throwCounter;
-
-
-    private Transform player;
 
 
     void Start()
@@ -33,24 +23,17 @@ public class PlayerDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider2D detector = Physics2D.OverlapBox((Vector2)detectorOrigin.position + detectorOffset, detectorSize, 0);
+        Collider2D detector = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<DetectionBox>().Detector; //Gets transforms of detector from Detection Box script
         Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().Collider;
-        bool isPlayer = Physics2D.IsTouching(playerCol, detector);
+        bool isPlayer = Physics2D.IsTouching(playerCol, detector); //Checks if player's collider is touching the PlayerDectorBox collider
         if (isPlayer)
         {
-            if (throwCounter < 0)
+            if (throwCounter < 0) //Checks if throwcounter is 0 or below and throws a projectile if true
             {
-                Instantiate(projectilePrefab, (Vector2)throwPoint.position, Quaternion.identity);
+                Instantiate(projectilePrefab, (Vector2)throwPoint.position, Quaternion.identity); //Throws projectile from desired place on enemy
                 throwCounter = throwTime;
             }
         }
         throwCounter -= Time.deltaTime;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube((Vector2)detectorOrigin.position + detectorOffset, detectorSize);
-
     }
 }
