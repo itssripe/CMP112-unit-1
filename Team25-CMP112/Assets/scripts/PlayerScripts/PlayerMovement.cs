@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAttack PlayerAttack;
     private bool jumped;
     private bool onGround;
+    private bool CanDoubleJump;
+    private bool DoubleJump;
     public float MovementSpeed;
     public float jumpForce = 5f;
     public bool isRunning;
@@ -50,9 +52,16 @@ public class PlayerMovement : MonoBehaviour
         {
             jumped = false;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            CanDoubleJump = true;
 
         }
-        
+
+        if (DoubleJump)
+        {
+            DoubleJump = false;
+            CanDoubleJump = false;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
 
 
 
@@ -93,12 +102,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputValue Value)
     {
-        if (onGround)//checks if on ground
-        {
-            jumped = true;
+        if (Value.isPressed) { 
+            if (onGround)//checks if on ground
+            {
+                jumped = true;
+            }
+            else if (CanDoubleJump && !jumped)
+            {
+                DoubleJump = true;
+            }
         }
     }
-
 
 
 
