@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public bool isRunning;
     public bool IsLookingRight;
+    public TMP_Text scoretext;
+    public GameObject winUI;
 
     private Collider2D collider;
     public Collider2D Collider
@@ -112,6 +115,13 @@ public class PlayerMovement : MonoBehaviour
                 DoubleJump = true;
             }
         }
+    }
+
+
+    private void OnDestroy()
+    {
+        scoretext.text = "You Lose!";
+        winUI.SetActive(true);
     }
 
 
