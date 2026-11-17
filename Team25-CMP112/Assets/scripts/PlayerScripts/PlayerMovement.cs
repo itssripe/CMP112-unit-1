@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text scoretext;
     public GameObject winUI;
 
+    public CoinManager cm;
+
     private Collider2D collider;
     public Collider2D Collider
     {
@@ -124,15 +126,17 @@ public class PlayerMovement : MonoBehaviour
         winUI.SetActive(true);
     }
 
-
-
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))//compares player collider with the ground collider if in contact - sets to true
+        if (collision.CompareTag("Ground"))
         {
-            onGround = true;  
+            onGround = true;
+        }
+
+        if (collision.CompareTag("Coin"))
+        {
+            cm.coinCount++;
+            Destroy(collision.gameObject); //destroy the coin after player has picked it up
         }
     }
 
