@@ -23,17 +23,14 @@ public class PlayerDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider2D detector = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<DetectionBox>().Detector; //Gets transforms of detector from Detection Box script
-        Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
-        bool isPlayer = Physics2D.IsTouching(playerCol, detector); //Checks if player's collider is touching the PlayerDectorBox collider
-        if (isPlayer)
+      throwCounter -= Time.deltaTime;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (throwCounter < 0) //Checks if throwcounter is 0 or below and throws a projectile if true
         {
-            if (throwCounter < 0) //Checks if throwcounter is 0 or below and throws a projectile if true
-            {
-                Instantiate(projectilePrefab, (Vector2)throwPoint.position, Quaternion.identity); //Throws projectile from desired place on enemy
-                throwCounter = throwTime;
-            }
+            Instantiate(projectilePrefab, (Vector2)throwPoint.position, Quaternion.identity); //Throws projectile from desired place on enemy
+            throwCounter = throwTime;
         }
-        throwCounter -= Time.deltaTime;
     }
 }
