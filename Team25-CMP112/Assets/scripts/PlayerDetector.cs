@@ -16,17 +16,19 @@ public class PlayerDetector : MonoBehaviour
 
     void Start()
     {
-        rb= GetComponent<EnemyMovement>().Rb;
+        rb = GetComponent<EnemyMovement>().Rb;
         throwCounter = throwTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Collider2D detector = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<DetectionBox>().Detector; //Gets transforms of detector from Detection Box script
-        Collider2D playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
-        bool isPlayer = Physics2D.IsTouching(playerCol, detector); //Checks if player's collider is touching the PlayerDectorBox collider
-        if (isPlayer)
+        throwCounter -= Time.deltaTime;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
             if (throwCounter < 0) //Checks if throwcounter is 0 or below and throws a projectile if true
             {
@@ -34,6 +36,5 @@ public class PlayerDetector : MonoBehaviour
                 throwCounter = throwTime;
             }
         }
-        throwCounter -= Time.deltaTime;
     }
 }

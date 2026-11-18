@@ -1,7 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,16 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAttack PlayerAttack;
     private bool jumped;
     private bool onGround;
-    private bool CanDoubleJump;
-    private bool DoubleJump;
     public float MovementSpeed;
     public float jumpForce = 5f;
     public bool isRunning;
     public bool IsLookingRight;
-    public TMP_Text scoretext;
-    public GameObject winUI;
-
-    public CoinManager cm;
 
     private Collider2D collider;
     public Collider2D Collider
@@ -57,16 +50,9 @@ public class PlayerMovement : MonoBehaviour
         {
             jumped = false;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            CanDoubleJump = true;
 
         }
-
-        if (DoubleJump)
-        {
-            DoubleJump = false;
-            CanDoubleJump = false;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        
 
 
 
@@ -107,36 +93,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump(InputValue Value)
     {
-        if (Value.isPressed) { 
-            if (onGround)//checks if on ground
-            {
-                jumped = true;
-            }
-            else if (CanDoubleJump && !jumped)
-            {
-                DoubleJump = true;
-            }
+        if (onGround)//checks if on ground
+        {
+            jumped = true;
         }
     }
 
 
-    private void OnDestroy()
-    {
-        scoretext.text = "You Lose!";
-        winUI.SetActive(true);
-    }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ground"))
-        {
-            onGround = true;
-        }
 
-        if (collision.CompareTag("Coin"))
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground"))//compares player collider with the ground collider if in contact - sets to true
         {
-            cm.coinCount++;
-            Destroy(collision.gameObject); //destroy the coin after player has picked it up
+            onGround = true;  
         }
     }
 
