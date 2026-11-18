@@ -16,7 +16,7 @@ public class PlayerDetector : MonoBehaviour
 
     void Start()
     {
-        rb= GetComponent<EnemyMovement>().Rb;
+        rb = GetComponent<EnemyMovement>().Rb;
         throwCounter = throwTime;
     }
 
@@ -25,6 +25,7 @@ public class PlayerDetector : MonoBehaviour
     {
         throwCounter -= Time.deltaTime;
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -35,6 +36,5 @@ public class PlayerDetector : MonoBehaviour
                 throwCounter = throwTime;
             }
         }
-        throwCounter -= Time.deltaTime;
     }
 }
