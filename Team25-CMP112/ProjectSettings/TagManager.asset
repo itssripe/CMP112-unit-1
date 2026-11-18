@@ -15,7 +15,7 @@ TagManager:
   - UI
   - BG
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 579733983
+    locked: 0
+  - name: Enemy
+    uniqueID: 2361488259
     locked: 0
   m_RenderingLayers:
   - Default
