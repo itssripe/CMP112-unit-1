@@ -168,10 +168,10 @@ GameObject:
   - component: {fileID: 7500873698937967015}
   - component: {fileID: 2464363335377658673}
   - component: {fileID: 4159745968748430802}
-  - component: {fileID: 7817776513342686148}
   - component: {fileID: 7019217845311893274}
   - component: {fileID: 4654402379055765880}
   - component: {fileID: 118493056455508529}
+  - component: {fileID: 3224057585293784057}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -188,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 2205854527243427537}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.43, y: 0.96, z: 0}
+  m_LocalPosition: {x: -4.42, y: 1.11, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -317,7 +317,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 5
   m_AngularDamping: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -329,21 +329,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7817776513342686148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2205854527243427537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a88015bb070804eb0b75580b088838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  MovementSpeed: 35
-  jumpForce: 25
-  isRunning: 0
 --- !u!114 &7019217845311893274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,3 +396,19 @@ MonoBehaviour:
   Arrow_Projectile: {fileID: 2374759548571122077, guid: b764376c3a85ee849944928deb4025b0, type: 3}
   IsAttacking: 0
   SwordEquipped: 0
+--- !u!114 &3224057585293784057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205854527243427537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11c3306137d9604ea8df86764431ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  MovementSpeed: 35
+  jumpForce: 25
+  isRunning: 0
+  IsLookingRight: 0

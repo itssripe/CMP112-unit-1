@@ -3763,8 +3763,8 @@ TextureImporter:
       name: tiles_164
       rect:
         serializedVersion: 2
-        x: 160
-        y: 112
+        x: 176
+        y: 96
         width: 8
         height: 8
       alignment: 0
@@ -4863,12 +4863,12 @@ TextureImporter:
       name: tiles_214
       rect:
         serializedVersion: 2
-        x: 176
-        y: 96
+        x: 57
+        y: 104
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: -52.73346, y: 1.798377}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
